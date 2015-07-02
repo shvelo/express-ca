@@ -1,5 +1,8 @@
 var https = require('https'),
+	fs = require('fs'),
 	express = require('express');
+
+var port = 5000;
 
 var credentials = {
 	ca: fs.readFileSync('ssl/ca.crt'),
@@ -18,4 +21,6 @@ app.get('/', function(req, res){
 
 var server = https.createServer(credentials, app);
 
-server.listen(5000);
+server.listen(port);
+
+console.log("Listening on https://localhost:%d", port);
