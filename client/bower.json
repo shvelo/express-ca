@@ -1,0 +1,21 @@
+{
+  "name": "node-ca-client",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/shvelo/express-ca",
+  "authors": [
+    "Nick Shvelidze <captain@pirrate.me>"
+  ],
+  "description": "Express app using HTTPS Client Authentication",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
