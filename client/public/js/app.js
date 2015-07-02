@@ -1,17 +1,21 @@
-var app = angular.module('App', []);
+var app = angular.module('App', ['restangular']);
 
-app.controller('PersonListCtrl', function($scope){
-	$scope.people = [];
+app.controller('PersonListCtrl', function($scope, Restangular){
+	var basePeople = Restangular.all('people');
 
-	$scope.add = function(){
-		$scope.people.push({});
+	$scope.people = basePeople.getList().$object;
+
+	$scope.add = function() {
+		$scope.people.post($scope.newperson).then(function(person){
+			$scope.people.push(person);
+		});
+		$scope.newperson = {};
 	}
 
-	$scope.update = function(person) {
-
-	}
-
-	$scope.remove = function(person) {
-		
-	}
+	$scope.delete = function(person) {
+		person.remove().then(function() {
+			var index = $scope.people.indexOf(person);
+			if (index > -1) $scope.people.splice(index, 1);
+		});
+	};
 });

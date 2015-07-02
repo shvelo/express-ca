@@ -16,7 +16,6 @@ var credentials = {
 }
 
 winston.add(winston.transports.File, { filename: 'events.log' });
-winston.remove(winston.transports.Console);
 
 var app = express();
 app.use(bodyParser.json());
