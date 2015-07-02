@@ -1,5 +1,11 @@
 var app = angular.module('App', ['restangular']);
 
+app.config(["RestangularProvider",function(RestangularProvider){
+	RestangularProvider.setRestangularFields({
+		id: "_id"
+	});
+}]);
+
 app.controller('PersonListCtrl', function($scope, Restangular){
 	var basePeople = Restangular.all('people');
 

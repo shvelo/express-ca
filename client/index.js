@@ -35,8 +35,6 @@ app.use(bodyParser.json());
 
 app.get('/people', function(req, res){
 	Person.find({}, function(err, docs){
-		console.error(err);
-
 		res.send(docs);
 	});
 });
@@ -54,11 +52,10 @@ app.post('/people', function(req, res){
 	res.send(instance);
 });
 
-app.put('/people', function(req, res){
+app.put('/people/:id', function(req, res){
 	console.log("PUT", req.body);
 
-	Person.findById(req.body._id, function(err, instance){
-		console.error(err);
+	Person.findById(req.params.id, function(err, instance){
 		instance.name = req.body.name;
 		instance.age = req.body.age;
 		instance.save();
@@ -67,13 +64,11 @@ app.put('/people', function(req, res){
 	});
 });
 
-app.delete('/people', function(req, res){
-	console.log("DELETE", req.body);
+app.delete('/people/:id', function(req, res){
+	console.log("DELETE", req.params.id);
 
-	Person.remove(req.body, function(err){
-		console.error(err);
-		
-		res.send(req.body._id);
+	Person.remove(req.params.id, function(err){
+		res.send();
 	});
 });
 
