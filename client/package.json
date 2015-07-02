@@ -1,5 +1,5 @@
 {
-  "name": "node-ca-client",
+  "name": "express-ca-client",
   "version": "1.0.0",
   "description": "Express app using HTTPS Client Authentication",
   "main": "index.js",
