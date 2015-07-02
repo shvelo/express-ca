@@ -17,15 +17,14 @@ var credentials = {
 }
 
 var contactServer = function(payload){
-	request.post({
-		uri: url.parse('https://localhost:5000'),
-		url: url.parse('https://localhost:5000'),
+	request.post('https://localhost:5000/', {
 		key: credentials.key,
 		ca: credentials.ca,
 		cert: credentials.cert,
 		passphrase: credentials.passphrase,
-		rejectUnauthorized: false
-	}, { form: { data: payload }});
+		rejectUnauthorized: false,
+		form: { data: payload }
+	});
 }
 
 var app = express();

@@ -18,7 +18,9 @@ var credentials = {
 winston.add(winston.transports.File, { filename: 'events.log' });
 
 var app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 app.post('/', function(req, res){
 	winston.info(req.body);
