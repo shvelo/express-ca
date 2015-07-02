@@ -1,0 +1,14 @@
+{
+  "name": "node-ca",
+  "version": "1.0.0",
+  "description": "Express app using HTTPS Client Authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Shvelidze <captain@pirrate.me>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.0"
+  }
+}
