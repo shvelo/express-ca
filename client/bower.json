@@ -1,5 +1,5 @@
 {
-  "name": "node-ca-client",
+  "name": "express-ca-client",
   "main": "index.js",
   "version": "1.0.0",
   "homepage": "https://github.com/shvelo/express-ca",
