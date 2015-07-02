@@ -1,6 +1,9 @@
 var https = require('https'),
 	express = require('express'),
-	fs = require('fs');
+	expressRest = require('express-rest'),
+	mongoose = require('mongoose'),
+	fs = require('fs'),
+	thing = require('./model/thing');
 var port = 4000;
 
 var credentials = {
@@ -9,7 +12,6 @@ var credentials = {
 	cert: fs.readFileSync('ssl/client.crt'),
 	passphrase: 'admin'
 }
-
 
 var contactServer = function(){
 	https.get({
@@ -31,6 +33,8 @@ var contactServer = function(){
 var app = express();
 
 app.use(express.static('public'));
+
+var rest = expressRest(app);
 
 var server = app.listen(port);
 
