@@ -1,7 +1,8 @@
 var https = require('https'),
 	fs = require('fs'),
 	winston = require('winston'),
-	express = require('express');
+	express = require('express'),
+	bodyParser = require('body-parser');
 
 var port = 5000;
 
@@ -18,10 +19,11 @@ winston.add(winston.transports.File, { filename: 'events.log' });
 winston.remove(winston.transports.Console);
 
 var app = express();
+app.use(bodyParser.json());
 
-app.get('/', function(req, res){
-	winston.info("Gov'rnor access detected");
-	res.send("Ello gov'rnor!");
+app.post('/', function(req, res){
+	winston.info(req.body);
+	res.send(req.body);
 });
 
 var server = https.createServer(credentials, app);
