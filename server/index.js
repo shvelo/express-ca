@@ -1,5 +1,6 @@
 var https = require('https'),
 	fs = require('fs'),
+	winston = require('winston'),
 	express = require('express');
 
 var port = 5000;
@@ -13,10 +14,14 @@ var credentials = {
 	rejectUnauthorized: true
 }
 
+winston.add(winston.transports.File, { filename: 'events.log' });
+winston.remove(winston.transports.Console);
+
 var app = express();
 
 app.get('/', function(req, res){
-	res.send("Ello govr'nor!");
+	winston.info("Gov'rnor access detected");
+	res.send("Ello gov'rnor!");
 });
 
 var server = https.createServer(credentials, app);

@@ -9,6 +9,7 @@
   "author": "Nick Shvelidze <captain@pirrate.me>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.13.0"
+    "express": "^4.13.0",
+    "winston": "^1.0.1"
   }
 }
